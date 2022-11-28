@@ -1,0 +1,6 @@
+<nz-descriptions *ngIf="user" [nzTitle]="'admin.profile.general.title' | translate" nzBordered nzLayout="vertical">
+  <nz-descriptions-item [nzTitle]="'admin.profile.general.email' | translate">{{user?.email}}</nz-descriptions-item>
+  <nz-descriptions-item [nzTitle]="'admin.profile.general.firstname' | translate">{{user?.first_name}}</nz-descriptions-item>
+  <nz-descriptions-item [nzTitle]="'admin.profile.general.lastname' | translate">{{user?.last_name}}</nz-descriptions-item>
+ 
+</nz-descriptions>

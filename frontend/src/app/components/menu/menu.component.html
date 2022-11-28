@@ -1,0 +1,8 @@
+<ul nz-menu nzTheme="dark" [nzMode]="mode" routerLinkActive="active" class="header-menu">
+  <li nz-menu-item [nzSelected]="router.routerState.snapshot.url === '/home'">
+    <a routerLink="/home" (click)="closeDrawer && closeDrawer.emit()">
+      <i nz-icon nzType="home" nzTheme="fill"></i>
+      <span>{{ "Home" | translate }}</span>
+    </a>
+  </li>
+</ul>

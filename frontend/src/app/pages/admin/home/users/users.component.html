@@ -1,0 +1,39 @@
+<div class="container" >
+    
+    <div class="header">
+        <div class="header-text">
+            <h3>Users list</h3>
+        </div>
+        <div class="button-text">
+            <button nz-button nzType="primary">
+                <span nz-icon nzType="user-add" nzTheme="outline"></span>
+                Ajouter
+            </button>
+        </div>
+            
+    </div>
+    <nz-table #usersList [nzData]="all_users" nzSize="small" [nzPageSize]="15" nzBordered> 
+        <thead>
+            <tr>
+                <th> Email</th>
+                <th> Firstname</th>
+                <th> Lastname</th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of usersList.data">
+                <td> {{data.email}}</td>
+                <td> {{data.first_name}}</td>
+                <td> {{data.last_name}}</td>
+                <td>
+                    <a nz-icon nzType="edit" nzTheme="fill" style="font-size: 20px; color: green;"></a>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <a nz-icon nzType="delete" nzTheme="fill" style="font-size: 20px; color: red;" (click)="showConfirm(data.email, data.uuid)"></a>
+                </td>
+                
+            </tr>
+        </tbody>
+
+    </nz-table>
+</div>

@@ -1,0 +1,78 @@
+{
+  "server_error": "Errors occur on server",
+  "welcomeMessage": "Merci d'avoir rejoint {{ firstName }} !",
+  "welcomeContent": "C'est super de vous avoir!",
+  "home": "acceuil",
+  "Home": "Acceuil",
+  "about": "à propos",
+  "About": "À propos",
+  "Dashboard": "Dashboard",
+  "profile": "Mon compte",
+  "manage_profile": "Gérer profil",
+  "change_password": "Changer de mot de passe",
+  "sign_out": "Déconnecter",
+  "shared": {
+    "language_switcher": {
+      "en": "Anglais",
+      "fr": "Français"
+    }
+  },
+  "admin": {
+    "profile": {
+      "manage_profile": "Manage Profile",
+      "general": {
+        "title": "Général",
+        "email": "Adresse email",
+        "firstname": "Prénom",
+        "lastname": "Nom",
+        "createAt": "Profile created",
+        "updateAt": "Profile updated",
+        "isadmin": "Admin",
+        "role": "Poste",
+        "mention": "Mention",
+        "issuperuser": "Super Admin"
+      },
+      "edit_password": {
+        "title": "Mot de passe",
+        "old_password": "Ancien mot de passe",
+        "old_password_error": "Entrer l'ancien mot de passe!",
+        "new_password": "Nouveau mot de passe",
+        "new_password_error": "mot de passe doit étre contient 8 caractère au minimum avec Majuscule, minuscule et nombre",
+        "confirm_password": "Confirmation mot de passe",
+        "confirm_password_error": "Entrer le confiramation de mot de passe!",
+        "confirm_password_mismatch": "Mot de passe confiramtion non valide!",
+        "edit_password": "Changer le mot de passe",
+        "confirm_password_notification": "Password confirmation",
+        "confirm_password_notification_content": "Your password has been chanded, to confirm it click here :"
+      }
+    },
+    "home":{
+      "menu": "Menu",
+      "users":{
+        "title": "Utilisateurs"
+      },
+      "cars":{
+        "title": "Voiture"
+      },
+      "aventure":{
+        "title": "Aventure"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "email": "Adresse E-mail",
+      "email_placeholder": "Entrer votre adresse e-mail",
+      "email_error": "Veuillez entrer votre adresse e-mail!",
+      "password": "Mot de passe",
+      "password_placeholder": "Entrer votre mot de passe",
+      "password_error": "Veillez enter votre  mot de passe!",
+      "need_help": "Besoin d'aide, ",
+      "forgot_password": "Mot de passe oublié?",
+      "login": "Se Connecter",
+      "signin": "Connexion",
+      "new_to_wimse": "Nouveau chez WIMSE STORE?",
+      "create_account": "Créer votre compte WIMSE STORE"
+    }
+  }
+}

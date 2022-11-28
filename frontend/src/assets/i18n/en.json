@@ -1,0 +1,99 @@
+{
+  "server_error": "Errors occur on server",
+  "welcomeMessage": "Thanks for joining, {{ firstName }}!",
+  "welcomeContent": "It's great to have you!",
+  "home": "Home",
+  "about": "About",
+  "Dashboard": "Dashboard",
+  "profile": "My account",
+  "manage_profile": "Manage Profile",
+  "change_password": "Change Password",
+  "sign_out": "Sign Out",
+  "shared": {
+    "language_switcher": {
+      "en": "English",
+      "fr": "French"
+    }
+  },
+  "admin": {
+    "profile": {
+      "manage_profile": "Manage Profile",
+      "general": {
+        "title": "General",
+        "email": "E-mail address",
+        "firstname": "First name",
+        "lastname": "Last name",
+        "createAt": "Profile created",
+        "updateAt": "Profile updated",
+        "isadmin": "Admin",
+        "role": "Job",
+        "mention": "Mention",
+        "issuperuser": "Super Admin"
+      },
+      "edit_password": {
+        "title": "Change Password",
+        "old_password": "Old Password",
+        "old_password_error": "Please input the old password!",
+        "new_password": "New Password",
+        "new_password_error": "Password must contain at least 8 caracters with uppercase, lowercase and number",
+        "confirm_password": "Confirmation Password",
+        "confirm_password_error": "Please input the confirmation password!",
+        "confirm_password_mismatch": "Confirmation password mismatch!",
+        "edit_password": "Change Password",
+        "confirm_password_notification": "Password confirmation",
+        "confirm_password_notification_content": "Your password has been chanded, to confirm it click here :"
+      }
+    },
+    "home":{
+      "menu": "Menu",
+      "users":{
+        "title": "Users"
+      },
+      "cars":{
+        "title": "Cars"
+      },
+      "aventure":{
+        "title": "Adventure"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "email": "E-mail address",
+      "email_placeholder": "Enter your e-mail address",
+      "email_error": "Please input your e-mail address!",
+      "password": "Password",
+      "password_placeholder": "Password",
+      "password_error": "Please input your password!",
+      "need_help": "Need help, ",
+      "forgot_password": "Forgot your password ?",
+      "login": "Login",
+      "signin": "Sign-In",
+      "new_to_wimse": "New to WIMSE STORE?",
+      "create_account": "Create your WIMSE STORE account"
+    },
+    "password": {
+      "changed": {
+        "title": "Password Changed",
+        "content": "Your password has been changed successfully. All instances sessions has been removed. You can now login to you new password!",
+        "login": "Login"
+      },
+      "forgot_password": {
+        "title": "Forgot Password",
+        "email": "E-mail address",
+        "email_placeholder": "Enter your e-mail address",
+        "email_error": "Please input your e-mail address!",
+        "reset_button": "Reset Password",
+        "email_sent": {
+          "title": "E-mail sent",
+          "content": "Reset link password was sent to your e-mail successfully!"
+        },
+        "email_reset": {
+          "title": "Reset password link",
+          "content": "You have request to reset your password. Click on this link : ",
+          "reset": "reset"
+        }
+      }
+    }
+  }
+}

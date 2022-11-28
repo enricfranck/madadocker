@@ -1,0 +1,29 @@
+<nz-layout class="inner-layout">
+  <nz-sider nzWidth="200px" nzTheme="light">
+    <nz-content class="inner-content">
+      <ul nz-menu nzMode="inline">
+        <li nz-menu-group [nzTitle]="'admin.home.menu' | translate ">
+          <ul>
+            <!--
+            <li nz-menu-item nzSelected routerLink="/home/users"
+              [nzSelected]="router.routerState.snapshot.url === '/home/users'">
+              <a routerLink="/home/users">{{'admin.home.users.title' | translate}}</a>
+            </li>
+            -->
+            <li nz-menu-item nzSelected routerLink="/home/cars"
+              [nzSelected]="router.routerState.snapshot.url === '/home/cars'">
+              <a routerLink="/home/cars">{{'admin.home.cars.title' | translate}}</a>
+            </li>
+            <li nz-menu-item nzSelected routerLink="/home/aventure"
+              [nzSelected]="router.routerState.snapshot.url === '/home/aventure'">
+              <a routerLink="/home/aventure">{{'admin.home.aventure.title' | translate}}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-content>
+  </nz-sider>
+  <nz-content class="inner-content" style="width: 100%">
+    <router-outlet></router-outlet>
+  </nz-content>
+</nz-layout>
