@@ -40,6 +40,7 @@ export class CarsComponent implements OnInit {
      {
       this.form = this.fb.group({
         name: [null, [Validators.required]],
+        description:[null],
       });  }
 
   ngOnInit(): void {
@@ -68,12 +69,31 @@ export class CarsComponent implements OnInit {
       const body = {
         name: this.form.value.name,
         description: this.form.value.description,
-        direction: this.form.value.direction
       }
-      if (this.isEdit){
+      if (this.isEdit){ 
+        const formData = new FormData(); 
+        if (this.url !== "assets/images/profil.png"){
+          formData.append("uploaded_file", this.uploadedImage)
+          this.http.post<any>(`${BASE_URL}/v1/upload/?image_name=`+this.form.value.name,formData, this.options).subscribe(
+            data => {
+              if(data){
+                  const body = {
+                    name: this.form.value.name,
+                    url_image: data.filename,
+                    description:this.form.value.description,
+                  }
+                  this.http.put<Cars[]>(`${BASE_URL}/v1/cars?car_id=`+this.uuid,body, this.options).subscribe(
+                    data => {
+                        this.all_cars = data
+                    }, 
+                    error => console.error("error as ", error))
+              }
+            }, 
+            error => console.error("error as ", error)
+            )
+    }
       }else{
         const formData = new FormData();
-        console.log(this.uploadedImage)
           if (this.url !== "assets/images/profil.png"){
             formData.append("uploaded_file", this.uploadedImage)
             this.http.post<any>(`${BASE_URL}/v1/upload/?image_name=`+this.form.value.name,formData, this.options).subscribe(
@@ -81,9 +101,10 @@ export class CarsComponent implements OnInit {
                 if(data){
                     const body = {
                       name: this.form.value.name,
-                      url_car: data.filename,
+                      url_image: data.filename,
+                      description:this.form.value.description,
                     }
-                    this.http.post<Aventuras[]>(`${BASE_URL}/v1/cars`,body, this.options).subscribe(
+                    this.http.post<Cars[]>(`${BASE_URL}/v1/cars`,body, this.options).subscribe(
                       data => {
                           this.all_cars = data
                       }, 
@@ -112,6 +133,7 @@ export class CarsComponent implements OnInit {
     this.isEdit = false;
     this.isvisible = true;
     this.form.get('name')?.setValue('');
+    this.form.get('description')?.setValue('');
   }
 
   async showModalEdit(uuid: number){
@@ -120,7 +142,8 @@ export class CarsComponent implements OnInit {
     this.http.get<Cars>(`${BASE_URL}/v1/cars/`+uuid, this.options).subscribe(
       data => {
       this.form.get('name')?.setValue(data.name)
-      this.url = `${BASE_URL}/cars/image?image_name=`+data.url_car
+      this.form.get('description')?.setValue(data.description)
+      this.url = `${BASE_URL}/v1/image/?image_name=`+data.url_image
       },
       error => console.error("error as ", error)
     );
@@ -131,6 +154,8 @@ export class CarsComponent implements OnInit {
 
   handleCancel(): void{
     this.isvisible = false
+
+
   }
 
   selectFile(event: any){

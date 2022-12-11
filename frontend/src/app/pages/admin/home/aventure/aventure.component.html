@@ -1,9 +1,6 @@
 <div class="container" >
     
     <div class="header">
-        <div class="header-text">
-            <h3>Users list</h3>
-        </div>
         <div class="button-text">
             <button nz-button nzType="primary" (click)="showModal()">
                 <span nz-icon nzType="user-add" nzTheme="outline"></span>
@@ -45,6 +42,24 @@
       nzMaskClosable="false">
   <div *nzModalContent>
       <form nz-form [formGroup]="form" class="form" (ngSubmit)="submitForm()" nzLayout="vertical">
+        <nz-form-item>
+          <nz-form-label nzRequired>Aventures
+          </nz-form-label>
+          <nz-form-control [nzErrorTip]="'Champs obligatoires'">
+            <nz-select
+              nzAllowClear
+              formControlName="circuit"
+              [nzPlaceHolder]="'admin.home.mention.title' | translate"
+              >
+              <nz-option *ngFor="let item of allCircuit"
+                  [nzLabel]="item.title"
+                  [nzValue]="item.id"
+              >
+              </nz-option>
+          </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
           <nz-form-item>
             <nz-form-label nzRequired>Aventures
             </nz-form-label>

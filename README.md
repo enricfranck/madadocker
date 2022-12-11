@@ -1,70 +1,41 @@
-# fastapi-react-project
 
-## Features
+Pour le backend
 
-- **FastAPI** with Python 3.8
-- **React 16** with Typescript, Redux, and react-router
-- Postgres
-- SqlAlchemy with Alembic for migrations
-- Pytest for backend tests
-- Jest for frontend tests
-- Perttier/Eslint (with Airbnb style guide)
-- Docker compose for easier development
-- Nginx as a reverse proxy to allow backend and frontend on the same port
-
-## Development
-
-The only dependencies for this project should be docker and docker-compose.
-
-### Quick Start
-
-Starting the project with hot-reloading enabled
-(the first time it will take a while):
-
+creer un environement virtuel
 ```bash
-docker-compose up -d
+cd backend
+python3 -m venv venv
 ```
 
-To run the alembic migrations (for the users table):
-
+activer l' environement virtuel
 ```bash
-docker-compose run --rm backend alembic upgrade head
+source venv/bin/activate
+```
+installer les packages
+```bash
+pip3 install -r requirements.txt
+```
+lancer le backend
+```bash
+python3 app/main.py 
 ```
 
-And navigate to http://localhost:8000
+http://localhost:8888/api/v1
 
-_Note: If you see an Nginx error at first with a `502: Bad Gateway` page, you may have to wait for webpack to build the development server (the nginx container builds much more quickly)._
+http://localhost:8888/api/docs
 
-Auto-generated docs will be at
-http://localhost:8000/api/docs
-
-### Rebuilding containers:
-
-```
-docker-compose build
-```
-
-### Restarting containers:
-
-```
-docker-compose restart
-```
-
-### Bringing containers down:
-
-```
-docker-compose down
-```
-
-### Frontend Development
-
-Alternatively to running inside docker, it can sometimes be easier
-to use npm directly for quicker reloading. To run using npm:
-
-```
+Pour le frontend
+lancer le backend
+```bash
 cd frontend
+```
+installer les packages
+```bash
 npm install
-ng serve
+```
+lancer le front
+```bash
+npm run start
 ```
 
-This should redirect you to http://localhost
+http://localhost:4200

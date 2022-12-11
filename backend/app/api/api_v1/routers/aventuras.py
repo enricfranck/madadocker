@@ -7,6 +7,7 @@ from core.auth import get_current_active_superuser
 from crud.crud_aventuras import (
     list_aventuras,
     create_new_aventuras,
+    retreive_by_circuit,
     retreive_aventuras,
     delete_aventuras_by_id,
     update_aventuras_by_id,
@@ -31,7 +32,26 @@ async def aventuras_list(
     """
     aventuras = list_aventuras(db)
     # This is necessary for react-admin to work
-    response.headers["Content-Range"] = f"0-9/{len(aventuras)}"
+    response.headers["Content-Range"] = f"0-10/{len(aventuras)}"
+    return aventuras
+
+@r.get(
+    "/aventuras/by_circuit",
+    response_model=t.List[ShowAventuras],
+    response_model_exclude_none=True,
+)
+async def aventuras_list(
+    response: Response,
+    id_circuit: int,
+    db=Depends(get_db),
+   # current_user=Depends(get_current_active_superuser),
+):
+    """
+    Get all aventuras
+    """
+    aventuras = retreive_by_circuit(id_circuit=id_circuit, db=db)
+    # This is necessary for react-admin to work
+    response.headers["Content-Range"] = f"0-10/{len(aventuras)}"
     return aventuras
 
 
@@ -60,18 +80,19 @@ async def aventura_details(
 async def _create(
     request: Request,
     aventura: AventurasCreate,
+    id_circuit: int,
     db=Depends(get_db),
    # current_user=Depends(get_current_active_superuser),
 ):
     """
     Create a new user
     """
-    create_new_aventuras(db=db, aventuras=aventura)
+    create_new_aventuras(db=db, aventuras=aventura, id_circuit=id_circuit)
     return list_aventuras(db)
 
 
 @r.put(
-    "/aventuras", response_model=ShowAventuras, response_model_exclude_none=True
+    "/aventuras", response_model=t.List[ShowAventuras], response_model_exclude_none=True
 )
 async def aventura_edit(
     request: Request,
@@ -86,8 +107,8 @@ async def aventura_edit(
     aventura_ = retreive_aventuras(db=db, id=aventura_id)
     if not aventura_:
         raise HTTPException(status_code=401, detail="aventura not found")
-    return update_aventuras_by_id(db=db,id=aventura_.id, aventuras=aventura)
-
+    update_aventuras_by_id(db=db,id=aventura_.id, aventuras=aventura)
+    return list_aventuras(db)
 
 @r.delete(
     "/aventuras", response_model=t.List[ShowAventuras], response_model_exclude_none=True

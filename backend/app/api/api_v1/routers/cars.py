@@ -72,7 +72,7 @@ async def _create(
 
 
 @r.put(
-    "/cars", response_model=ShowCar, response_model_exclude_none=True
+    "/cars", response_model=t.List[ShowCar], response_model_exclude_none=True
 )
 async def car_edit(
     request: Request,
@@ -87,7 +87,8 @@ async def car_edit(
     car_ = retreive_car(db=db, id=car_id)
     if not car_:
         raise HTTPException(status_code=401, detail="car not found")
-    return update_car_by_id(db=db, car=car)
+    update_car_by_id(id=car_id, db=db, car=car)
+    return  list_cars(db)
 
 
 @r.delete(
@@ -105,7 +106,7 @@ async def car_delete(
     car_ = retreive_car(db=db, id=car_id)
     if not car_:
         raise HTTPException(status_code=401, detail="car not found")
-    url = car_.url_car
+    url = car_.url_image
     delete_car_by_id(db=db, id=car_id)
     path = os.getcwd() + "/files/" + url
     os.remove(path)
@@ -126,6 +127,7 @@ async def create_upload_file(*,
                              image_name: str,
                             # current_user= Depends(get_current_active_superuser)
                              ):
+    image_name = image_name.replace(" ", "_")
     name = list(os.path.splitext(uploaded_file.filename))[1]
     allowed_files = {".jpg", ".jpeg", ".png", ".webp"}
 

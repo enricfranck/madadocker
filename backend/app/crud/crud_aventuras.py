@@ -3,8 +3,8 @@ from schemas import AventurasCreate
 from sqlalchemy.orm import Session
 
 
-def create_new_aventuras(aventuras: AventurasCreate, db: Session):
-    aventuras_object = Aventuras(**aventuras.dict())
+def create_new_aventuras(aventuras: AventurasCreate, db: Session, id_circuit: int):
+    aventuras_object = Aventuras(**aventuras.dict(), id_circuit=id_circuit)
     db.add(aventuras_object)
     db.commit()
     db.refresh(aventuras_object)
@@ -13,6 +13,10 @@ def create_new_aventuras(aventuras: AventurasCreate, db: Session):
 
 def retreive_aventuras(id: int, db: Session):
     item = db.query(Aventuras).filter(Aventuras.id == id).first()
+    return item
+
+def retreive_by_circuit(id_circuit: int, db: Session):
+    item = db.query(Aventuras).filter(Aventuras.id_circuit == id_circuit).all()
     return item
 
 

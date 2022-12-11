@@ -54,6 +54,9 @@
       },
       "aventure":{
         "title": "Adventure"
+      },
+      "circuit":{
+        "title": "Circuit"
       }
     }
   },

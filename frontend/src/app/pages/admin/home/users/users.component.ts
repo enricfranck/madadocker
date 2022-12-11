@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.http.get<any>(`${BASE_URL}/aventuras/all`, this.options).subscribe(
+    this.http.get<any>(`${BASE_URL}/v1/aventuras`, this.options).subscribe(
       data => this.all_users = data,
       error => console.error("error as ", error)
     );

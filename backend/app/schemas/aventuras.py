@@ -25,6 +25,7 @@ class ShowAventuras(AventurasBase):
     title: str
     direction: str
     description: str
+    id_circuit: int
 
     class Config:  # to convert non dict obj to json
         orm_mode = True

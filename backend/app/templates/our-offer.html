@@ -55,14 +55,11 @@
 								<li class="menu-item"><a href="{{ url_for('customer_protection') }}">Madagascar</a></li>	
 								<li class="menu-item  current-menu-item dropdown"><a href="our-offer.html">Nos circuits</a>
 									<ul class="dropdown-content pop-off">
-											<li><a href="{{ url_for('circuit') }}"> LA TERRE DES AVENTURES</a></li>
-											<li><a  href="{{ url_for('circuit') }}">LE TRESOR CACHE DE L'OUEST</a></li>
-											<li><a  href="{{ url_for('circuit') }}">LA TERRE DES INCONNUS</a></li>
-											<li><a  href="{{ url_for('circuit') }}">LE SECRET DE L'ILE ROUGE</a></li>
-											<li><a  href="{{ url_for('circuit') }}">CIRCUIT SPECIAL BIRD</a></li>
-											<li><a  href="{{ url_for('circuit') }}">CIRCUIT AUX ALENTOURS DE FIANAR</a></li>
-											<li><a href="{{ url_for('circuit') }}">CIRCUIT MAKAY</a></li>
-											<li><a href="{{ url_for('circuit') }}">CIRCUIT PERSONNALISE</a></li>
+
+							{% for circuit in circuits %}
+											<li><a href="/api/v1/circuit/?id_circuit={{circuit.id}}"> {{circuit.title}}</a></li>
+
+							{% endfor %}
 									</ul>
 								</li>
 							
@@ -85,8 +82,21 @@
 					<div class="container">
 					
 						<div class="filterable-items">
+							{% for circuit in circuits %}
+							<div class="filterable-item australia" >
+								<article class="offer-item pop-off">
+									<figure class="featured-image">
+										<img src={{"http://localhost:8888/api/v1/image/?image_name="+circuit.url_image}} alt="image">
+									</figure>
+									<h2 class="entry-title"><a href="#">{{circuit.title}}</a></h2>
+									<p>{{circuit.description}}</p>
+									<div class="price center">
+										<a href="/api/v1/circuit/?id_circuit={{circuit.id}}" class="button"><b>Détails ></b></a>
+									</div>
+								</article>
+							</div>
 						
-							
+							{% endfor %}
 							<div class="filterable-item australia" >
 								<article class="offer-item pop-off">
 									<figure class="featured-image">
@@ -99,6 +109,7 @@
 									</div>
 								</article>
 							</div>
+							<!--
 							<div class="filterable-item south-america">
 								<article class="offer-item pop-off">
 									<figure class="featured-image">
@@ -172,7 +183,7 @@
 								</article>
 							</div>
 						</div>
-
+							-->
 						<div class="pagination wow fadeInUp">
 							<span class="page-numbers current">1</span>
 						</div>

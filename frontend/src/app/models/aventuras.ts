@@ -3,4 +3,5 @@ export interface Aventuras{
     title?: string,
     direction?: string,
     description?: string
+    id_circuit: number,
 }

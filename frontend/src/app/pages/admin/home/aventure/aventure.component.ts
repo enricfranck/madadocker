@@ -5,6 +5,7 @@ import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
 import { environment } from '@environments/environment';
 import { Aventuras } from '@app/models/aventuras';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Circuit } from '@app/models/circuit';
 
 const BASE_URL = environment.authApiURL;
 
@@ -26,6 +27,7 @@ export class AventureComponent implements OnInit {
   isConfirmLoading = false;
   isEdit = false;
   uuid!: number
+  allCircuit: Circuit[] =  []
   options = {
     headers: this.headers
   }
@@ -36,12 +38,17 @@ export class AventureComponent implements OnInit {
         title: [null, [Validators.required]],
         direction: [null, [Validators.required]],
         description: [null, [Validators.required]],
+        circuit: [null, [Validators.required]],
       });  }
 
   ngOnInit(): void {
     console.log(localStorage.getItem("token"))
     this.http.get<any>(`${BASE_URL}/v1/aventuras`, this.options).subscribe(
       data => this.all_aventuras = data,
+      error => console.error("error as ", error)
+    );
+    this.http.get<any>(`${BASE_URL}/v1/circuits`, this.options).subscribe(
+      data => this.allCircuit = data,
       error => console.error("error as ", error)
     );
   }
@@ -67,9 +74,13 @@ export class AventureComponent implements OnInit {
         direction: this.form.value.direction
       }
       if (this.isEdit){
-        
+        this.http.put<Aventuras[]>(`${BASE_URL}/v1/aventuras?aventura_id=`+this.uuid,body, this.options).subscribe(
+          data => {
+              this.all_aventuras = data
+          }, 
+          error => console.error("error as ", error))
       }else{
-        this.http.post<Aventuras[]>(`${BASE_URL}/v1/aventuras`,body, this.options).subscribe(
+        this.http.post<Aventuras[]>(`${BASE_URL}/v1/aventuras?id_circuit=`+this.form.value.circuit,body, this.options).subscribe(
           data => {
               this.all_aventuras = data
           }, 
@@ -99,9 +110,11 @@ export class AventureComponent implements OnInit {
     this.uuid = uuid
     this.http.get<Aventuras>(`${BASE_URL}/v1/aventuras/`+uuid, this.options).subscribe(
       data => {
+        console.log(data);
       this.form.get('title')?.setValue(data.title)
       this.form.get('description')?.setValue(data.description)
       this.form.get('direction')?.setValue(data.direction)
+      this.form.get('circuit')?.setValue(data.id_circuit)
       },
       error => console.error("error as ", error)
     );

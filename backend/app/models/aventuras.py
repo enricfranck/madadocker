@@ -9,3 +9,4 @@ class Aventuras(Base):
     title = Column(String, nullable=False)
     direction = Column(String, nullable=False)
     description = Column(String, nullable=False)
+    id_circuit = Column(Integer, nullable=False)

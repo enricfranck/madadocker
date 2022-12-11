@@ -1,5 +1,6 @@
 export interface Cars{
     id: number,
     name?: string,
-    url_car?: string,
+    url_image?: string,
+    description?: string,
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AventureComponent } from './aventure/aventure.component';
 import { CarsComponent } from './cars/cars.component';
+import { CircuitComponent } from './circuit/circuit.component';
 import { HomeComponent } from './home.component';
 import { UsersComponent } from './users/users.component';
 
@@ -26,6 +27,11 @@ const routes: Routes = [
     {
       path: 'aventure',
       component: AventureComponent,
+      data: { breadcrumb: 'admin.home.users.title' },
+    },
+    {
+      path: 'circuit',
+      component: CircuitComponent,
       data: { breadcrumb: 'admin.home.users.title' },
     },
   ]

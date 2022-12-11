@@ -18,6 +18,10 @@
               [nzSelected]="router.routerState.snapshot.url === '/home/aventure'">
               <a routerLink="/home/aventure">{{'admin.home.aventure.title' | translate}}</a>
             </li>
+            <li nz-menu-item nzSelected routerLink="/home/circuit"
+            [nzSelected]="router.routerState.snapshot.url === '/home/circuit'">
+            <a routerLink="/home/circuit">{{'admin.home.circuit.title' | translate}}</a>
+          </li>
           </ul>
         </li>
       </ul>

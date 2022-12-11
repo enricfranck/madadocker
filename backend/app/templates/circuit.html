@@ -64,7 +64,7 @@
 					</div>
 					<nav class="breadcrumbs">
 						<a href="customer-protection.html">Nos Circuit</a> &rarr;
-						<span>LE TRESOR CACHE DE L’OUEST</span>
+						<span>{{circuit.title}}</span>
 					</nav>
 				</div>
 			</header> <!-- .site-header -->
@@ -91,7 +91,7 @@
       									{% for circuit in circuits %}
 										<li>
 											<p>
-												{{circuit.date}} <br> {{circuit.traject}}
+												{{circuit.title}} <br> {{circuit.direction}}
 											</p>
 											<div id="content">
 												<hr>{{circuit.description}}

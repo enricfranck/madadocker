@@ -1,0 +1,81 @@
+ <div class="header">
+        <div class="button-text">
+            <button nz-button nzType="primary" (click)="showModal()">
+                <span nz-icon nzType="user-add" nzTheme="outline"></span>
+                Ajouter
+            </button>
+        </div>
+            
+    </div>
+    <nz-table #usersList [nzData]="all_circuit" nzSize="small" [nzPageSize]="15" nzBordered> 
+        <thead>
+            <tr>
+                <th> Title</th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of usersList.data">
+                <td> {{data.title}}</td>
+                <td>
+                    <a nz-icon nzType="edit" nzTheme="fill" style="font-size: 20px; color: green;" (click)="showModalEdit(data.id)"></a>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <a nz-icon nzType="delete" nzTheme="fill" style="font-size: 20px; color: red;" (click)="showConfirm(data.title, data.id)"></a>
+                </td>
+                
+            </tr>
+        </tbody>
+
+    </nz-table>
+<nz-modal 
+      [(nzVisible)]="isvisible" 
+      nzTitle="Aventure"
+      (nzOnCancel)="handleCancel()" 
+      nzMask="true"
+      nzMaskClosable="false">
+  <div *nzModalContent>
+      <form nz-form [formGroup]="form" class="form" (ngSubmit)="submitForm()" nzLayout="vertical">
+          <nz-form-item>
+            <nz-form-label nzRequired>Circuit
+            </nz-form-label>
+            <nz-form-control [nzErrorTip]="'Champs obligatoires'">
+              <nz-input-group>
+                <input type="text" nz-input formControlName="title" appCustomAutoFocus
+                  [placeholder]="'Circuit'" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <div class="container" >
+                <img [src]="url" alt="" *ngIf="url">
+                <div [innerHtml]="msg" *ngIf="msg" style="color: red;"></div>
+                <input type="file" #fileDropRef id="fileDropRef"  (change)="selectFile($event)"/>
+              </div>
+          </nz-form-item>
+          
+          <nz-form-item>
+            <nz-form-label nzRequired>Descriptions
+            </nz-form-label>
+            <nz-form-control [nzErrorTip]="'Champs oblibatoires'">
+              <nz-input-group>
+                  <textarea
+                    formControlName="description"
+                    nz-input
+                    placeholder="Descriptions"
+                    [nzAutosize]="{ minRows: 1, maxRows: 8 }"
+                ></textarea>
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-spin [nzSpinning]="isConfirmLoading">
+              <button nz-button class="form-button form-margin" [nzType]="'primary'" type="submit">Enregistrer
+              </button>
+          </nz-spin>
+      </form>
+  </div>
+  <div *nzModalFooter>
+      </div>
+</nz-modal>
+
