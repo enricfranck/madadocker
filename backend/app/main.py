@@ -47,7 +47,7 @@ async def db_session_middleware(request: Request, call_next):
     return response
 
 
-@app.get("/api/v1")
+@app.get("/")
 async def home(request: Request, db: Session = Depends(get_db), msg: str = None):
     return templates.TemplateResponse(
         "index.html", {"request": request,  "msg": msg}
