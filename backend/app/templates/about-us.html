@@ -47,10 +47,15 @@
 						<nav class="main-navigation">
 							<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 							<ul class="menu">
-								<li class="menu-item"><a href="{{ url_for('home') }}">Accueil</a></li>
+								<li class="menu-item current-menu-item"><a href="">Accueil</a></li>
+								<!--
+									<li class="menu-item"><a href="our-offer.html">Accueil</a></li>
+								-->
 								<li class="menu-item"><a href="{{ url_for('about_us') }}" >Qui sommes nous</a></li>
 								<li class="menu-item"><a href="{{ url_for('customer_protection') }}">Madagascar</a></li>
 								<li class="menu-item"><a href="{{ url_for('our_offer') }}">nos circuits</a></li>
+								<li class="menu-item"><a  href="{{ url_for('cars') }}">Location voitures</a></li>
+								<li class="menu-item"><a  href="{{ url_for('our_offer') }}">Mada tretreka</a></li>
 								<li class="menu-item"><a href="{{ url_for('contact') }}">Contact</a></li>
 							</ul>
 						</nav>
@@ -76,10 +81,20 @@
 								<figure>
 									<img src="{{ url_for('static', path='dummy/figure-1.jpg') }}" alt="">
 								</figure>
-								<br><br><br>							
+								<br><br><br>
+								<section id="oli">
+									<h4><b>OLI :&nbsp;  PRESIDENT - LEADER DU GROUPE - GUIDE ACCOMPAGNATEUR NATIONAL</b></h4>
+									<div class="pull-left stylised" >							
+										<img src="{{ url_for('static', path='dummy/person-3.jpg') }}" alt="" srcset="">
+								</div>	
+									<p>
+Sortant de l’ISPM (Institut Supérieur Polytechnique de Madagascar) en tant qu’informaticien, il a commencé comme agent système chez BNI-CA Madagascar en 2009, puis a été engagé dans les ressources humaines chez MAGRAMA à Antsohamamy comme chef personnel. Quelques années plus tard, il a été appelé à diriger l’Ecole Privée TARATRA Hanitriniala à Ikamby, un établissement scolaire créé par l’ONG MIORA Hanitriniala au sein duquel il est aussi son trésorier, une fonction qu’il occupe toujours jusqu’à ce jour. Ce fervent de bureau a d’ailleurs redécouvert la nature à cet endroit et y a pris goût au travers des nombreuses activités qu’il a été emmené à gérer : reboisement, parrainage, électrification locale, adduction d’eau etc. Ce grand curieux, de nature autodidacte, initié depuis peu à l’ECOTOURISME, est le bras droit de notre leader. Oli, BONDOT Olia Ange, apporte une valeur ajoutée précieuse à l’équipe de par son profil : organisé, rigoureux et pluridisciplinaire.
+									</p>
+								</section>
+								<br><br><br>
+										
 								<section id="fanabird">
-									
-									<h4><b>FANABIRD : &nbsp;</b> PRESIDENT - LEADER DU GROUPE - GUIDE ACCOMPAGNATEUR NATIONAL</h4> 
+									<h4><b>FANABIRD : &nbsp;</b> TRESORIER-COMPTABLE - SOCIO-ORGANISATEUR - RESPONSABLE DE BUREAU</h4> 
 									<div class="pull-left stylised" >							
 											<img src="{{ url_for('static', path='dummy/person-1.jpg') }}" alt="" srcset="">
 									</div>	
@@ -87,7 +102,7 @@
 										Sortant de FO.CU.S (Formation Culture Santé) dans la filière « Tourisme et Environnement », ce grand amoureux de la nature a forgé ses qualités sur terrain. Ne voulant sauter aucune étape, il a commencé tout en bas de l’échelle, d’abord comme stagiaire durant un an au bout duquel il est devenu guide local, puis au bout de quelques années de pratique, le poste de chauffeur guide lui tendait les bras. Ensuite, son poste en tant que guide accompagnateur national au sein d’une agence de voyage sise à Fianarantsoa l’a donné l’occasion de s’épanouir professionnellement, d’enrichir ses connaissances et de peaufiner encore plus ses compétences. La faune et la flore n’ont aucun secret pour lui, en particulier les variétés d’oiseaux qui lui a valu le surnom de FANABIRD, Fana de son vrai nom FANANTENANTSOA Andriamandimby, nom de guerre qui lui colle parfaitement à la peau. Ses 14 années d’expériences dans le tourisme à Madagascar lui a certes permis de vivre de sa passion mais aussi et surtout de les partager à nos voyageurs, nos visiteurs et nos invités. C’est en toute logique que le titre de Leader lui revient et qu’il porte d’ailleurs avec beaucoup d’humilité.
 										</p>
 								</section>
-								<br><br><br>
+								<br><br>
 								<section id="sedy">
 									<h4><b>SEDY :&nbsp; VICE-PRESIDENT - GUIDE NATIONAL - ANIMATEUR</b></h4>
 									<div class="pull-left stylised" >							
@@ -97,19 +112,8 @@
 Sortant d’INSCO UNIVERSITY (Institut des Sciences Commerciales) en tant que guide accompagnateur, il a commencé son insertion professionnelle à la vallée de Tsaranoro, notamment chez Tsara Camp, un site touristique incontournable du Sud. Chaleureux, volontaire et endurant, ce grand animateur au multiple talent en a surpris plus d’un lors de ses croisières en groupe. Sa maîtrise parfaite de la biodiversité malagasy le rend indispensable à chaque sortie. Mais s’il lui arrive de laisser place au silence, sa guitare qui n’est jamais loin, parlera pour lui. Avec SEDY, RAKOTOMBOLA Sedera, aucune place à l’ennuie. C’est un homme de pur terrain, spécialisé dans le voyage touristique, il répond présent à toute circonstance.
 									</p>
 								</section>
-								<br><br>
-								<br>
-
-								<section id="oli">
-									<h4><b>OLI :&nbsp; TRESORIER-COMPTABLE - SOCIO-ORGANISATEUR - RESPONSABLE DE BUREAU</b></h4>
-									<div class="pull-left stylised" >							
-										<img src="{{ url_for('static', path='dummy/person-3.jpg') }}" alt="" srcset="">
-								</div>	
-									<p>
-Sortant de l’ISPM (Institut Supérieur Polytechnique de Madagascar) en tant qu’informaticien, il a commencé comme agent système chez BNI-CA Madagascar en 2009, puis a été engagé dans les ressources humaines chez MAGRAMA à Antsohamamy comme chef personnel. Quelques années plus tard, il a été appelé à diriger l’Ecole Privée TARATRA Hanitriniala à Ikamby, un établissement scolaire créé par l’ONG MIORA Hanitriniala au sein duquel il est aussi son trésorier, une fonction qu’il occupe toujours jusqu’à ce jour. Ce fervent de bureau a d’ailleurs redécouvert la nature à cet endroit et y a pris goût au travers des nombreuses activités qu’il a été emmené à gérer : reboisement, parrainage, électrification locale, adduction d’eau etc. Ce grand curieux, de nature autodidacte, initié depuis peu à l’ECOTOURISME, est le bras droit de notre leader. Oli, BONDOT Olia Ange, apporte une valeur ajoutée précieuse à l’équipe de par son profil : organisé, rigoureux et pluridisciplinaire.
-									</p>
-								</section>
-								<br><br><br>
+											
+								<br><br><br>		
 								<section id="valix">
 									<h4><b>VALIX :&nbsp; SECRETAIRE GENERALE - TECHNICIENS - RESPONSABLE ECOTOURISME</b></h4> 
 									<div class="pull-left stylised" >							

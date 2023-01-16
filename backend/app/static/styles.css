@@ -803,6 +803,8 @@ table {
 
 .offer-item {
   margin-bottom: 50px;
+  margin: 10px;
+  background-color: #00ff2a;
 }
 .offer-item .featured-image {
   border-radius: 3px;
@@ -926,10 +928,10 @@ table {
 }
 
 .filterable-item {
-  padding: 0 15px;
+  padding: 2px 15px;
   width: 33.3333%;
   float: left;
-  height: 300px;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 768px) {
   .filterable-item {
