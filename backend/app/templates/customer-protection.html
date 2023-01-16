@@ -52,10 +52,15 @@
 						<nav class="main-navigation">
 							<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 							<ul class="menu">
-								<li class="menu-item"><a href="{{ url_for('home') }}">Accueil</a></li>
+								<li class="menu-item current-menu-item"><a href="">Accueil</a></li>
+								<!--
+									<li class="menu-item"><a href="our-offer.html">Accueil</a></li>
+								-->
 								<li class="menu-item"><a href="{{ url_for('about_us') }}" >Qui sommes nous</a></li>
 								<li class="menu-item"><a href="{{ url_for('customer_protection') }}">Madagascar</a></li>
 								<li class="menu-item"><a href="{{ url_for('our_offer') }}">nos circuits</a></li>
+								<li class="menu-item"><a  href="{{ url_for('cars') }}">Location voitures</a></li>
+								<li class="menu-item"><a  href="{{ url_for('our_offer') }}">Mada tretreka</a></li>
 								<li class="menu-item"><a href="{{ url_for('contact') }}">Contact</a></li>
 							</ul>
 						</nav>
@@ -305,7 +310,8 @@
 						<div class="contact-links pull-right">
 							<a href="https://goo.gl/maps/oQKxg"><i class="fa fa-map-marker"></i>
 								Fianarantsoa</a>
-							<a href="tel:+134453455345"><i class="fa fa-phone"></i> +261-3X-XX-XXX-XX</a>
+								<a href="tel:+134453455345"><i class="fa fa-phone"></i> +261 38 53 361 67 </a>
+								<a href="tel:+134453455345"><i class="fa fa-phone"></i> +261 34 32 491 31</a>
 							<a href="mailto:contact@companyname.com"><i class="fa fa-envelope"></i>
 								Mada@tretreka.com</a>
 						</div>
